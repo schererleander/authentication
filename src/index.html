@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <link rel="stylesheet" href="./output.css">
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 class="text-center text-2xl font-bold">Registration</h2>
+      </div>
+      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form class="space-y-6">
+          <div>
+            <label class="block font-medium">Email</label>
+            <div class="mt-2">
+              <input type="email" name="email" class="w-full rounded-md shadow-md ring-1 ring-gray-300 focus:ring-2 px-1.5 py-0.5">
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between w-full">
+              <label class="block font-medium">Password</label>
+              <label class="text-teal-600 font-medium hover:text-teal-500">Forgot password?</label>
+            </div>
+            <div class="mt-2">
+              <input type="password" name="password" class="w-full rounded-md shadow-md ring-1 ring-gray-300 focus:ring-2 px-1.5 py-0.5">
+            </div>
+          </div>
+          <div class="flex flex-row gap-2">
+            <button hx-post="/api/password/register" hx-target="#events" hx-post="true" type="submit" class="w-full rounded-md bg-teal-600 hover:bg-teal-500 py-1 px-2 text-white font-semibold">Register</button>
+            <button hx-post="/api/password/signin" hx-target="#events" hx-boost="true" type="submit" class="w-full rounded-md bg-teal-600 hover:bg-teal-500 py-1 px-2 text-white font-semibold">Sign in</button>
+          </div>
+        </form>
+      </div>
+      <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <hr class="my-2">
+        <h3 class="font-medium">Events</h3>
+        <div id="events"></div>
+    </div>
+    </div>
+  </body>
+</html>
