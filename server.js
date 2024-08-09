@@ -58,6 +58,10 @@ app.post("/api/password/signin", async (req, res) => {
       return res.status(401).send("Invalid credentials");
     }
 
+    if(!validateEmail(email)) {
+      return res.status(401).send("Invalid email");
+    }
+
     const [users] = await con.query(
       "SELECT * FROM users WHERE email = ?",
       [email]
@@ -96,3 +100,8 @@ app.get("/user/:uuid", async (req, res) => {
     return res.status(500).send("Server error")
   }
 })
+
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
