@@ -59,11 +59,11 @@ app.post("/api/password/signin", async (req, res) => {
     }
 
     const [users] = await con.query(
-      "SELECT * FROM users WHERE email = ?",g
+      "SELECT * FROM users WHERE email = ?",
       [email]
     );
 
-    if (users.length == 0) {
+    if (users == null) {
       return res.status(200).send("User does not exist");
     }
     const passwordMatch = bcrypt.compareSync(password, users.password);
