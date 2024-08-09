@@ -11,3 +11,5 @@ This is a simple authentication system built using Express.js. It demonstrates h
 - Password requirements
 - GitHub OAuth integration
 - "Forgot Password" functionality via email (maybe)
+
+> The web design was inspired by [Tom Delalande](https://youtu.be/IThLjsDUG0g?si=2tQICmEU2szai8wY)
