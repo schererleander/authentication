@@ -9,6 +9,7 @@ This is a simple authentication system built using Express.js. It demonstrates h
 ## Planned Features
 - Email validation (done)
 - Password requirements (done)
+- Passkey
 - GitHub OAuth integration
 - "Forgot Password" functionality via email (maybe)
 
