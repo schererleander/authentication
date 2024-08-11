@@ -7,8 +7,8 @@ This is a simple authentication system built using Express.js. It demonstrates h
 - Password hashing with bcrypt
 
 ## Planned Features
-- Email validation
-- Password requirements
+- Email validation (done)
+- Password requirements (done)
 - GitHub OAuth integration
 - "Forgot Password" functionality via email (maybe)
 
