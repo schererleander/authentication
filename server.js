@@ -35,6 +35,14 @@ app.post("/api/password/register", async (req, res) => {
     if(existingUsers != null) {
       return res.status(200).send("User already exists")
     }
+
+    if(!validateEmail(email)) {
+      return res.status(200).send("Invalid email")
+    }
+
+    if(!validatePassword(password)) {
+      return res.status(200).send("Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.")
+    }
     const UUID = uuid()
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(password, salt);
@@ -104,4 +112,13 @@ app.get("/user/:uuid", async (req, res) => {
 function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
+}
+
+function validatePassword(password) {
+  const uppercaseletter = /[A-Z]/
+  const lowercaseletter = /[a-z]/
+  const digit = /[0-9]/
+  const special = /[^A-Za-z0-9]/
+  const minlength = 8
+  return uppercaseletter.test(password) && lowercaseletter.test(password) && digit.test(password) && special.test(password) && password.length >= minlength
 }
